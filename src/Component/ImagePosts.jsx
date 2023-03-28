@@ -54,32 +54,12 @@ const ImagePosts = () => {
                 setAudioModal([]);
               }}
             >
-              <div className={`modal ${show ? "show" : ""}`}>
-                <div className="modal-content">
-                  <span className="close" onClick={handleClose}>
-                    <ImCross />
-                  </span>
-                  <img
-                    src={audioModal.image}
-                    alt="Preview"
-                    className="post-img-modal"
-                  />
-                  <AudioPlayer
-                    style={{ width: "300px" }}
-                    src={audioModal.audio}
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
-                    isPlaying={isPlaying}
-                    header={audioModal.description}
-                  />
-                </div>
-              </div>
               <button
                 className="play-btn"
                 onClick={() => {
                   setAudioModal(image);
                   console.log(audioModal);
-                  console.log("clikced")
+                  console.log("clikced");
                   handleShow();
                   const myElement = historyData.filter(
                     (obj) => obj.id === image.id
@@ -102,6 +82,27 @@ const ImagePosts = () => {
               >
                 Play Audio
               </button>
+
+              <div className={`modal ${show ? "show" : ""}`}>
+                <div className="modal-content">
+                  <span className="close" onClick={handleClose}>
+                    <ImCross />
+                  </span>
+                  <img
+                    src={audioModal.image}
+                    alt="Preview"
+                    className="post-img-modal"
+                  />
+                  <AudioPlayer
+                    style={{ width: "300px" }}
+                    src={audioModal.audio}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                    isPlaying={isPlaying}
+                    header={audioModal.description}
+                  />
+                </div>
+              </div>
 
               {image.menu && (
                 <h1 className="post-desc"> {image.description}</h1>

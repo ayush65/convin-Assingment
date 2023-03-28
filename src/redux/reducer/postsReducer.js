@@ -1,12 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { ImageData } from "../../fakeData";
-
-console.log(ImageData);
-
 export const postSlice = createSlice({
   name: "posts",
-  initialState: { value: ImageData, gallery: [], history: [] },
+  initialState: { value: [], gallery: [], history: [] },
   reducers: {
     addImage: (state, action) => {
       state.value.push(action.payload);
